@@ -38,8 +38,9 @@
 <img src="https://github.com/s6319410018/UML_SMARTWATERMETER/assets/127838702/6b397a67-0db9-4cb3-8bc7-30a253e8a394" width="3000">
       </td>
       <td>
- <h1>Sequent Diagram<h1/> 
-<img src="https://github.com/s6319410018/UML_SMARTWATERMETER/assets/127838702/f539bc8b-53d3-40a3-9404-6ebb64c718d0" width="3000">
+ <h1>Sequent Diagram Control Home Tabbar 1 and Home Tabbar 2<h1/> 
+<img src="https://github.com/s6319410018/UML_SMARTWATERMETER/assets/127838702/3239e7fd-fe19-4103-ad0d-d5a26823d22b" width="3000">
       </td>
      </tr>
    </table>
+
