@@ -13,7 +13,7 @@
     <tr>
       <td>
  <h4>Usecase Diagram<h4/> 
-<img src="https://github.com/s6319410018/UML_SMARTWATERMETER/assets/127838702/f539bc8b-53d3-40a3-9404-6ebb64c718d0" width="3000">
+<img src="https://github.com/s6319410018/UML_SMARTWATERMETER/assets/127838702/f539bc8b-53d3-40a3-9404-6ebb64c718d0" width="1000">
       </td>
      </tr>
    </table>
