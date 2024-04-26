@@ -1,0 +1,275 @@
+@startuml
+set namespaceSeparator ::
+class "flutter::src::widgets::framework.dart::StatefulWidget" {
+	- key: Key 
+	+ StatefulWidget({Key key}) 
+	- createState() : State 
+}
+class "flutter::src::widgets::framework.dart::State" {
+   - context: BuildContext    
+   + State()                                
+   - initState() : void                     
+   - dispose() : void                       
+   - didChangeDependencies() : void        
+   - didUpdateWidget() : void               
+   - build(BuildContext context) : Widget
+}
+class "smartwater::views::splash.dart::SplashUI" {
+   - key : Key
+   + State<SplashUI> createState()
+}
+class "smartwater::views::splash.dart::_SplashUIState" {
+   - String _email
+   - String _password
+   + void initState()
+   - void _loadUserEmailPassword()
+   + Widget build()
+}
+class "smartwater::authentication::login.dart::LOGIN_UI" {
+	- key : Key
+   + State<LOGIN_UI> createState()
+}
+class "smartwater::authentication::login.dart::_LOGIN_UIState" {
+   + bool isShowpassword
+   - bool _isChecked
+   + GlobalKey<FormState> fromKey
+   + TextEditingController input_email
+   + TextEditingController input_password
+   - dynamic _handleRemeberme()
+   + Widget build()
+}
+class "smartwater::authentication::register.dart::_REGISTER_UIState" {
+   + GlobalKey<FormState> fromKey
+   + TextEditingController input_name
+   + TextEditingController input_password
+   + TextEditingController input_email
+   + TextEditingController input_phone
+   + TextEditingController input_address
+   + TextEditingController input_key
+   + bool isShowpassword
+   + bool isShowpasswordre
+   + Widget build()
+}
+
+
+
+class "smartwater::authentication::register.dart::REGISTER_UI" {
+    - key: Key  
+    + State<REGISTER_UI> createState()
+}
+class "smartwater::views::home.dart::HOME_UI" {
+   + String? email
+   + String? password
+   + State<HOME_UI> createState()
+}
+class "smartwater::views::home.dart::_HOME_UIState" {
+   - double _minScale
+   - double _maxScale
+   + double opacityLevel
+   - double _currentScale
+   + Color navigationBarColor
+   + PageController pageController
+   + String? selectedValue
+   + int selectedIndex
+   + double width
+   + double height
+   + int? ControlAi
+   + int? ControlSolenoid
+   + bool water_icon
+   + bool ai_icon
+   + bool time_icon
+   + bool isLoading
+   - List<REALTIME> _realtimeDataList
+   - DatadetailsDataSourcePage1 _datadetailsDataSourcePage1
+   - DatadetailsDataSourcePage2 _datadetailsDataSourcePage2
+   - DatadetailsDataSourcePage3 _datadetailsDataSourcePage3
+   - Timer? _fetchData_Realtime_Timer
+   - Timer? _fetchData_Notification_Timer
+   + List<DateTime>? dateTimeList
+   + void initState()
+   - void _fetchDataPeriodically()
+   - void _fetchDataNotification()
+   - void _stopFetchingDataPeriodically()
+   + dynamic showWarningDialog()
+   + dynamic triggerNotification_On_Ai()
+   + Widget build()
+}
+class "smartwater::services::call_api_home.dart::CALLAPIDATAHOME" {
+   {static} + dynamic callApiRealtime()
+   {static} + dynamic callApiDatatable()
+   {static} + dynamic callApiUpdatetime()
+   {static} + dynamic callApiUpdateSolenoid()
+   {static} + dynamic callApiUpdateAi()
+   {static} + void showWarningDialog()
+   {static} + void showWarningDialogSuccess()
+}
+class "smartwater::widget::widgetget_table.dart::DatadetailsDataSourcePage1" {
+   + List<DATATABLE> alldata
+    - List<DataGridRow> _DataGridRows
+   + List<DataGridRow> rows
+   + void buildDataGridRow()
+   + DataGridRowAdapter buildRow()
+   + void updateDataGrid()
+}
+
+class "smartwater::widget::widgetget_table.dart::DatadetailsDataSourcePage2" {
+   + List<DATATABLE> alldata
+   - List<DataGridRow> _DataGridRows
+   + List<DataGridRow> rows
+   + void buildDataGridRow()
+   + DataGridRowAdapter buildRow()
+   + void updateDataGrid()
+}
+class "smartwater::widget::widgetget_table.dart::DatadetailsDataSourcePage3" {
+   + List<DATATABLE> alldata
+   - List<DataGridRow> _DataGridRows
+   + List<DataGridRow> rows
+   + void buildDataGridRow()
+   + DataGridRowAdapter buildRow()
+   + void updateDataGrid()
+}
+class "syncfusion_flutter_datagrid::src::datagrid_widget::sfdatagrid.dart::DataGridSource" {
+ + row
+  + buildRow()
+}
+class "smartwater::models::aicontrol_model.dart::AICONTROL" {
+   + String? userEmail
+   + String? controlAi
+   + String? userPassword
+   + Map<String, dynamic> toJson()
+   + Map<String, dynamic> fromJson()
+}
+class "smartwater::models::datatable_model.dart::DATATABLE" {
+   + String? message
+   + int? productDetailsMonthId
+   + double? productDetailsMonthFlowrate
+   + double? productDetailsMonthPressure
+   + double? productDetailsMonthWaterUse
+   + double? productDetailsDayWaterUse
+   + int? productDetailsResultSolenoid
+   + int? productDetailsResultTime
+   + int? productDetailsResultAi
+   + String? date
+   + String? time
+   + int? productKey
+   + Map<String, dynamic> toJson()
+   + Map<String, dynamic> fromJson()
+}
+class "smartwater::models::realtime_model.dart::REALTIME" {
+   + String? message
+   + int? realtimeSolenoid
+   + int? realtimeAI
+   + int? realtimeTime
+   + double? realtimeFlowrate
+   + double? realtimePressure
+   + String? userName
+   + String? userAddress
+   + String? userPhone
+   + String? userEmail
+   + int? userProductID
+   + double? productDetailsMonthWaterUse
+   + double? productDetailsDayWaterUse
+   + Map<String, dynamic> toJson()
+   + Map<String, dynamic> fromJson()
+}
+class "smartwater::models::solenoidcontrol_model.dart::SOLENOIDCONTROL" {
+   + String? userEmail
+   + String? controlSolenoid
+   + String? userPassword
+   + Map<String, dynamic> toJson()
+   + Map<String, dynamic> fromJson()
+}
+class "smartwater::models::timecontrol_model.dart::TIMECONTROL" {
+   + String? userEmail
+   + String? userPassword
+   + String? controlDateOn
+   + String? controlTimeOn
+   + String? controlDateOFF
+   + String? controlTimeOFF
+   + Map<String, dynamic> toJson()
+   + Map<String, dynamic> fromJson()
+}
+class "smartwater::models::user_model.dart::USER" {
+   + String? userName
+   + String? userAddress
+   + String? userPhone
+   + String? userPassword
+   + String? userProductId
+   + String? userEmail
+   + Map<String, dynamic> toJson()
+   + Map<String, dynamic> fromJson()
+}
+class "smartwater::services::call_api_authentication.dart::AUTHENTICATION" {
+   {static} + dynamic callApiRegister()
+   {static} + dynamic callApiLogin()
+   {static} + void showWarningDialog()
+   {static} + void showWarningDialogSuccess()
+}
+class "smartwater::services::call_api_home.dart::CALLAPIDATAHOME" {
+   {static} + dynamic callApiRealtime()
+   {static} + dynamic callApiDatatable()
+   {static} + dynamic callApiUpdatetime()
+   {static} + dynamic callApiUpdateSolenoid()
+   {static} + dynamic callApiUpdateAi()
+   {static} + void showWarningDialog()
+   {static} + void showWarningDialogSuccess()
+}
+class "smartwater::utils::env.dart::ENV" {
+   {static} + String urlApi
+}
+class "smartwater::utils::hash.dart::HASH" {
+   {static} + String hash_md5()
+}
+
+StatefulWidget *-- State
+SplashUI --|> StatefulWidget : extends
+_SplashUIState --* SplashUI
+_SplashUIState --|> State : extends
+_SplashUIState --> LOGIN_UI : Navigator
+_SplashUIState --> HOME_UI  : Navigator
+LOGIN_UI--|> StatefulWidget : extends
+_LOGIN_UIState--|> State : extends
+_LOGIN_UIState --* LOGIN_UI 
+_LOGIN_UIState --> HASH :  Call function
+_LOGIN_UIState  --> USER  : Use Model
+_LOGIN_UIState  --> AUTHENTICATION : Call function
+_LOGIN_UIState --> REGISTER_UI: Navigator
+REGISTER_UI--|> StatefulWidget : extends
+_REGISTER_UIState --*  REGISTER_UI
+_REGISTER_UIState --|> State : extends
+_REGISTER_UIState -->  HASH :  Call function
+_REGISTER_UIState -->  USER : Use model
+_REGISTER_UIState -->  AUTHENTICATION  : Call function
+_REGISTER_UIState -->  LOGIN_UI : Navigator
+AUTHENTICATION --> USER : Use model
+AUTHENTICATION --> HOME_UI: Click ok from dialog or Login Success
+AUTHENTICATION --> ENV: Use url
+HOME_UI *-- _HOME_UIState
+HOME_UI --|> StatefulWidget : extends
+_HOME_UIState --|> State : extends
+_HOME_UIState --> CALLAPIDATAHOME : Call Function
+_HOME_UIState --> REGISTER_UI : Navigator
+_HOME_UIState o-- DatadetailsDataSourcePage1 : UI table tabbar1
+_HOME_UIState o-- DatadetailsDataSourcePage2 : UI table tabbar2
+_HOME_UIState o-- DatadetailsDataSourcePage3 : UI table tabbar3
+_HOME_UIState --> DATATABLE : Use Model
+_HOME_UIState --> AICONTROL : Use Model
+_HOME_UIState --> REALTIME : Use Model
+_HOME_UIState --> SOLENOIDCONTROL : Use Model
+_HOME_UIState --> TIMECONTROL : Use Model
+_HOME_UIState --> USER : Use Model
+_HOME_UIState --> LOGIN_UI : Logout
+CALLAPIDATAHOME --> ENV: Use url
+CALLAPIDATAHOME --> DATATABLE
+CALLAPIDATAHOME --> AICONTROL
+CALLAPIDATAHOME --> REALTIME
+CALLAPIDATAHOME --> SOLENOIDCONTROL
+CALLAPIDATAHOME --> TIMECONTROL
+CALLAPIDATAHOME --> USER
+DatadetailsDataSourcePage1 --|> DataGridSource : extends
+DatadetailsDataSourcePage2 --|> DataGridSource : extends
+DatadetailsDataSourcePage2 --|> DataGridSource : extends
+DatadetailsDataSourcePage1 -->  DATATABLE : Use model
+DatadetailsDataSourcePage2 -->  DATATABLE : Use model
+DatadetailsDataSourcePage3 -->  DATATABLE : Use model
+@enduml

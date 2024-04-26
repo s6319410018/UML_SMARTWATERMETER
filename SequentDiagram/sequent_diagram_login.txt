@@ -1,0 +1,29 @@
+@startuml
+	actor user 
+	Participant LOGIN_UI
+	Participant SERVER
+	Participant DATABASE
+	user ->LOGIN_UI : 1: Click login
+	activate LOGIN_UI
+	LOGIN_UI->LOGIN_UI : 2 : Validate Input
+	activate LOGIN_UI
+	deactivate LOGIN_UI
+	alt failure case
+	LOGIN_UI->LOGIN_UI : 3 : Warning Dialog
+	activate LOGIN_UI
+	deactivate LOGIN_UI
+	end
+	LOGIN_UI->SERVER : 4 :Complete : callApiLogin( userEmail,userPassword )
+	activate SERVER
+	SERVER -> DATABASE : 5 : Validate : LOGIN_USER()
+	activate DATABASE
+	DATABASE --> SERVER : 6 : Result 
+	deactivate DATABASE
+	alt failure case
+    SERVER --> LOGIN_UI : 7 : Response "-1" Show Warning Dialog
+	else success case
+ 	SERVER --> LOGIN_UI : 8 : Response "1"  Navigator to HOME_UI
+   	deactivate LOGIN_UI
+    deactivate SERVER
+	end
+	@enduml

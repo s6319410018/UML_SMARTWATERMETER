@@ -1,0 +1,41 @@
+@startuml scale 16 left to right direction
+actor user 
+Participant "Home Tabar 4 UI" as tab
+Participant SERVER
+Participant DATABASE
+Participant "SERVER" as SERVER2
+Participant "Node Mcu Esp 8266-12E" as board
+alt failure case
+board ->SERVER2 : 1 :  Post data from senser
+activate board
+activate SERVER2
+SERVER2  -> DATABASE : 2:  Insert update Select
+activate DATABASE
+DATABASE --> SERVER2  : 3 : result
+SERVER2 --> board : 4 : http_response_code(503)
+else success case
+board ->SERVER2 : 5 : Post data from senser
+SERVER2  -> DATABASE : 6 :  Insert update Select
+user -> tab :  7 : see data
+activate tab
+alt failure case
+tab -> SERVER : 8 :  Request : Post \ncallApiRealtime(userEmail,userPassword),\ncallApiDatatable(userEmail,userPassword)
+activate SERVER
+SERVER -> DATABASE : 9 : Select data   \nGET_REALTIME(),\nGET_DATA()
+DATABASE --> SERVER : 10 : result
+tab <-- SERVER : 11 :  Response : showWarningDialog()
+else success case
+tab -> SERVER : 12 :  Request : Post \ncallApiRealtime(userEmail,userPassword),\ncallApiDatatable(userEmail,userPassword)
+SERVER -> DATABASE : 13 : Select data   \nGET_REALTIME(),\nGET_DATA()
+DATABASE --> SERVER : 14 : result
+SERVER --> tab : 15 : Response : data
+deactivate SERVER
+deactivate tab
+end
+DATABASE --> SERVER2  : 25 : result
+deactivate DATABASE
+SERVER2 --> board : 26 : http_response_code(200)
+deactivate board
+deactivate SERVER2
+end
+@endum

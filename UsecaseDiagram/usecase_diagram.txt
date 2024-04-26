@@ -1,0 +1,22 @@
+@startuml
+left to right direction
+actor "USER" as user
+rectangle "Smart Water Meter" {
+  usecase "Home" as U_home
+  usecase "Login" as U_login
+  usecase "Register" as U_register
+  usecase "HomeTabbar4" as U_HT4
+  usecase "HomeTabbar3" as U_HT3
+  usecase "HomeTabbar2" as U_HT2
+  usecase "HomeTabbar1" as U_HT1
+  usecase "Logout" as U_logout
+}
+user --> U_home
+U_home --> U_HT1
+U_home --> U_HT2
+U_home --> U_HT3
+U_home --> U_HT4
+U_home --> U_logout
+user --> U_login
+user --> U_register
+@enduml
