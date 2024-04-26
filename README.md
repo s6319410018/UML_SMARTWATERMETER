@@ -19,7 +19,6 @@
    </table>
 
 <table>
-
     <tr>
       <td>
  <h4>Sequent Diagram Login<h4/> 
