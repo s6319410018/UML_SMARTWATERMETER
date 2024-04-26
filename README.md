@@ -17,3 +17,18 @@
       </td>
      </tr>
    </table>
+
+<table>
+    <tr>
+      <td>
+ <h1>Sequent Diagram<h1/> 
+<img src="https://github.com/s6319410018/UML_SMARTWATERMETER/assets/127838702/782c728b-3ced-4819-9371-ce8a24cb2676" width="3000">
+      </td>
+     </tr>
+         <tr>
+      <td>
+ <h1>Sequent Diagram<h1/> 
+<img src="https://github.com/s6319410018/UML_SMARTWATERMETER/assets/127838702/f539bc8b-53d3-40a3-9404-6ebb64c718d0" width="3000">
+      </td>
+     </tr>
+   </table>
