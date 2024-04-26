@@ -1,0 +1,21 @@
+@startuml scale 16 left to right direction
+actor user 
+Participant "Home Tabar 1 and 2 UI" as tab
+Participant SERVER
+Participant DATABASE
+user -> tab : 1 :  click control button
+activate tab
+tab -> SERVER : 2 :  Request : Post \n : callApiUpdatetime(\n\t\tuserEmail,\n\t\tuserPassword,\n\t\tcontrol_Date_On,\n\t\tcontrol_Time_On,\n\t\tcontrol_Date_OFF,\n\t\tcontrol_Time_OFF), \n : callApiUpdateSolenoid(\n\t\tuserEmail,\n\t\tuserPassword,\n\t\tcontrol_Solenoid), \n : callApiUpdateAi(\n\t\tuserEmail,\n\t\tuserPassword,\n\t\tcontrol_Ai),
+activate SERVER
+SERVER -> DATABASE : 3 : Select and update data    \nGET_REALTIME(),\nUPDATE_CONTROL_SOLENOID(),\nUPDATE_CONTROL_AI()
+activate DATABASE
+DATABASE --> SERVER : 4 : result
+deactivate  DATABASE
+alt failure case
+tab <-- SERVER : 5 :  Response : showWarningDialog()
+else success case
+SERVER --> tab : 6 : Response : data
+deactivate SERVER
+deactivate tab
+end
+@enduml

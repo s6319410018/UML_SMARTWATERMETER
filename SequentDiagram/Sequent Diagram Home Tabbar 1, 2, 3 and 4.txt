@@ -1,0 +1,21 @@
+@startuml scale 16 left to right direction
+actor user 
+Participant "Home Tabar 1,2,3,4 UI" as tab
+Participant SERVER
+Participant DATABASE
+user -> tab :  1 : see data
+activate tab
+tab -> SERVER : 2 :  Request : Post \ncallApiRealtime(userEmail,userPassword),\ncallApiDatatable(userEmail,userPassword)
+activate SERVER
+SERVER -> DATABASE : 3 : Select data   \nGET_REALTIME(),\nGET_DATA()
+activate DATABASE
+DATABASE --> SERVER : 4 : result
+deactivate DATABASE
+alt failure case
+tab <-- SERVER : 5 :  Response : showWarningDialog()
+else success case
+SERVER --> tab : 6 : Response : data
+deactivate SERVER
+deactivate tab
+end
+@enduml

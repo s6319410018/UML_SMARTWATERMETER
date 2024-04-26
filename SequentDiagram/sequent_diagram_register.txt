@@ -1,0 +1,29 @@
+	@startuml
+actor user 
+Participant REGISTER_UI
+Participant SERVER
+Participant DATABASE
+user -> REGISTER_UI : 1 : click register
+activate REGISTER_UI
+REGISTER_UI->REGISTER_UI : 2 : Validate Input
+activate REGISTER_UI
+deactivate REGISTER_UI
+alt failure case
+REGISTER_UI->REGISTER_UI : 3 : Warning Dialog
+activate REGISTER_UI
+deactivate REGISTER_UI
+end
+REGISTER_UI -> SERVER : 4 : Complete \ncallApiRegister( \nuserName,  \nuserAddress, \nuserPhone, \nuserPassword, \nuserProductId, \nuserEmail)
+activate  SERVER
+SERVER -> DATABASE : 5 : Validate  \nGET_VALIDATE_EMAIL(),\nGET_VALIDATE_PHONE(),\nGET_VALIDATE_USER_PRODUCT(),\nGET_VALIDATE_PRODUCT()
+activate DATABASE
+DATABASE --> SERVER : 6 : Result
+deactivate DATABASE
+alt failure case
+SERVER --> REGISTER_UI : 7 :  Response "-1" Show Warning Dialog
+else success case
+SERVER --> REGISTER_UI : 8 :  Response "1" Show Success Dialog
+deactivate SERVER
+deactivate REGISTER_UI
+end
+@enduml
