@@ -20,9 +20,7 @@
 
 
 <table>
-     <td>
          <h1>Sequent Diagram<h1/>
-     </td>  
     <tr>
       <td>
  <h4>Sequent Diagram Login<h4/> 
