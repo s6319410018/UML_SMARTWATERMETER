@@ -19,8 +19,6 @@
    </table>
 
 <table>
-             <h1>Sequent Diagram<h1/>
-<table>
 
     <tr>
       <td>
@@ -44,5 +42,4 @@
 <img src="https://github.com/s6319410018/UML_SMARTWATERMETER/assets/127838702/3239e7fd-fe19-4103-ad0d-d5a26823d22b" width="3000">
       </td>
      </tr>
-   </table>
    </table>
