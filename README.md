@@ -18,9 +18,10 @@
      </tr>
    </table>
 
-
 <table>
-         <h1>Sequent Diagram<h1/>
+             <h1>Sequent Diagram<h1/>
+<table>
+
     <tr>
       <td>
  <h4>Sequent Diagram Login<h4/> 
@@ -44,4 +45,4 @@
       </td>
      </tr>
    </table>
-
+   </table>
