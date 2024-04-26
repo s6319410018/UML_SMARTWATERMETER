@@ -1,7 +1,7 @@
 
 <table>
      <tr>
-         Class Diagram
+         <h1>Class Diagram<h1/> 
      </tr>
     <tr>
       <td>
