@@ -29,6 +29,10 @@
  <h1>Sequent Diagram Register<h1/> 
 <img src="https://github.com/s6319410018/UML_SMARTWATERMETER/assets/127838702/76025751-0fb7-4f30-beeb-5f346be7fef5" width="3000">
       </td>
+<td>
+ <h1>Sequent Diagram  Home Tabbar 1, 2, 3 and 4<h1/> 
+<img src="https://github.com/s6319410018/UML_SMARTWATERMETER/assets/127838702/76025751-0fb7-4f30-beeb-5f346be7fef5" width="3000">
+      </td>
      </tr>
          <tr>
       <td>
